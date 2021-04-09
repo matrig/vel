@@ -106,6 +106,8 @@ class ModelConfig:
                  parameters: typing.Optional[dict] = None, tag: typing.Optional[str] = None):
         self.filename = filename
         self.device = device
+        if device.isdigit():
+            self.device = int(device)
         self.resume_training = resume_training
         self.run_number = run_number
         self.seed = seed if seed is not None else (dtm.date.today().year + self.run_number)

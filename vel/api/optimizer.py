@@ -100,7 +100,7 @@ class VelOptimizerProxy(VelOptimizer):
                 max_norm=self.max_grad_norm
             )
             self.optimizer.step(closure)
-            return {'grad_norm': grad_norm}
+            return {'grad_norm': grad_norm.cpu()}
         else:
             self.optimizer.step(closure)
             return {}
